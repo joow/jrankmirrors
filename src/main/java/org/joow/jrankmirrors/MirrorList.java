@@ -57,7 +57,7 @@ public final class MirrorList {
             try {
                 results.add(future.get(computeTimeout(results), TimeUnit.MILLISECONDS));
             } catch (InterruptedException | ExecutionException | TimeoutException e) {
-                future.cancel(true);
+                future.cancel(false);
             }
         }
 
