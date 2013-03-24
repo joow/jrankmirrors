@@ -1,0 +1,29 @@
+# Maintainer: Benoît Giraudou <bgiraudou@gmail.com>
+pkgname=jrankmirrors
+pkgver=1.0
+pkgrel=1
+pkgdesc="Filter the five fastest Arch Linux Mirrors"
+arch=('any')
+url=""
+license=('BSD')
+depends=('java-environment')
+source=(http://services.gradle.org/distributions/$pkgname-$pkgver.zip)
+md5sums=('267b0ee2bae3cf005976e961d4a7e610')
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+
+    # create the necessary directory structure
+    mkdir -p "$pkgdir/usr/share/java/$pkgname/lib"
+
+    # copy across jar files
+    install -Dm644 lib/*.jar "$pkgdir/usr/share/java/$pkgname/lib" || return 1
+
+    # copy across supporting text documentation and scripts
+    install -m644 README.md "$pkgdir/usr/share/java/$pkgname" || return 1
+    install -m644 LICENSE "$pkgdir/usr/share/java/$pkgname" || return 1
+    install -m644 jrankmirrors "$pkgdir/usr/share/java/$pkgname" || return 1
+
+    # link jrankmirrors script to /usr/bin
+    ln -s /usr/share/java/$pkgname/bin/$pkgname $pkgdir/usr/bin
+}

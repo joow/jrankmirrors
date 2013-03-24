@@ -1,0 +1,5 @@
+#!/bin/sh
+set CLASSPATH=lib/*.jar
+set MAINCLASS=org.joow.jrankmirrors.JRankMirrors
+
+java -cp $CLASSPATH $MAINCLASS
