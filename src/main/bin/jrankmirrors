@@ -1,5 +1,6 @@
 #!/bin/sh
-set CLASSPATH=lib/*.jar
-set MAINCLASS=org.joow.jrankmirrors.JRankMirrors
+APP_HOME=`realpath $0`
+CLASSPATH=`dirname $APP_HOME`/lib/*
+MAINCLASS=org.joow.jrankmirrors.JRankMirrors
 
-java -cp $CLASSPATH $MAINCLASS
+java -classpath "$CLASSPATH" $MAINCLASS
