@@ -8,7 +8,7 @@ url=""
 license=('BSD')
 depends=('java-environment')
 source=(https://github.com/joow/jrankmirrors/raw/master/$pkgname-$pkgver.zip)
-md5sums=('267b0ee2bae3cf005976e961d4a7e610')
+md5sums=('cf4f42eccfba91508e03493905ce7f2a')
 
 package() {
     cd "${srcdir}/${pkgname}-${pkgver}"
